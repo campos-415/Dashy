@@ -2,6 +2,7 @@ import React from "react";
 import ReactDOM from "react-dom";
 import App from "./App";
 import "./index.css";
+import { ContextProvider } from "./context/contextProvider";
 
 // const root = ReactDOM.createRoot(document.getElementById("root"));
 // root.render(<App />);
@@ -10,4 +11,9 @@ import "./index.css";
 // to log results (for example: reportWebVitals(console.log))
 // or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
 
-ReactDOM.render(<App />, document.getElementById('root'))
+ReactDOM.render(
+  <ContextProvider>
+    <App />
+  </ContextProvider>,
+  document.getElementById("root")
+);
