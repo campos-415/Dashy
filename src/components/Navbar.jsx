@@ -79,7 +79,7 @@ const Navbar = () => {
               className="flex items-center gap-2 cursor-pointer p-1 hover:bg-light-gray rounded-lg"
               onClick={() => handleClick("userProfile")}>
               <img
-                className="rounded-full w-8 h-8"
+                className="rounded-full w-8 h-8 object-cover "
                 src={avatar}
                 alt="user-profile"
               />
