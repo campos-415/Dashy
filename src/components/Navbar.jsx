@@ -29,21 +29,23 @@ const Navbar = () => {
   const { activeMenu, setActiveMenu, isClicked, setIsClicked, handleClick, screenSize, setScreenSize } = useStateContext();
   const handleActiveMenu = () => setActiveMenu(!activeMenu);
 
-  useEffect(() => {
-    const handleResize = () => setScreenSize(window.innerWidth)
-    window.addEventListener("resize", handleResize)
-    return () => window.removeEventListener("resize", handleResize)
+   useEffect(() => {
+     const handleResize = () => setScreenSize(window.innerWidth);
 
-  }, [])
-  
-  useEffect(() => {
-    if (screenSize <= 900) {
-      setActiveMenu(false)
-    } else {
-      setActiveMenu(true)
-    }
-  },[screenSize])
+     window.addEventListener("resize", handleResize);
 
+     handleResize();
+
+     return () => window.removeEventListener("resize", handleResize);
+   }, []);
+
+   useEffect(() => {
+     if (screenSize <= 900) {
+       setActiveMenu(false);
+     } else {
+       setActiveMenu(true);
+     }
+   }, [screenSize]);
   return (
     <>
       <div className="relative flex justify-between p-2 md:ml-6 md:mr-6">
